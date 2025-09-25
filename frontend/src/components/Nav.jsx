@@ -8,7 +8,7 @@ export default function Nav() {
       <a href="#main" className="skip-link">Skip to content</a>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
         <NavLink to="/" className="flex items-center space-x-3 text-2xl font-bold bg-gradient-to-r from-primary-600 to-accent-600 bg-clip-text text-transparent hover:from-primary-700 hover:to-accent-700 transition-all duration-300">
-          <img src='/logo.png' alt="company logo" className="w-10 h-10" />
+          <img src='/assets/icon.png' alt="company logo" className="w-10 h-10" />
           <span>RadioFusion Global </span>
         </NavLink>
         <nav className="hidden md:flex space-x-8" aria-label="Primary">
