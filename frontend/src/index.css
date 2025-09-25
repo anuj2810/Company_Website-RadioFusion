@@ -1,0 +1,279 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* Tailwind CSS */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base adjustments */
+:root {
+  /* Professional Corporate Color Variables - Muted & Calm */
+  --color-primary: #0A1F44;      /* Deep Navy Blue */
+  --color-primary-light: #64748b; /* Muted slate blue */
+  --color-secondary: #262626;     /* Warm charcoal */
+  --color-accent: #0ea5e9;       /* Muted sky blue */
+  --color-background: #fafafa;    /* Soft off-white */
+  --color-surface: #f5f7fa;      /* Warm gray surface */
+  --color-text: #1e293b;         /* Dark charcoal text */
+  --color-text-muted: #64748b;   /* Muted text */
+  
+  /* Professional image styling */
+  --image-filter: none;
+  --overlay-color: rgba(0, 0, 0, 0.1);
+  
+  /* Premium border radius */
+  --radius-corporate: 1.75rem;   /* 28px */
+  --radius-premium: 2rem;        /* 32px */
+  --radius-hero: 2.5rem;         /* 40px */
+}
+
+/* Global styles with reduced eye strain */
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  line-height: 1.7;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography - Comfortable and professional */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: 500;
+  line-height: 1.3;
+  color: var(--color-text);
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-weight: 600;
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-weight: 600;
+  font-size: 2rem;
+}
+
+h3 {
+  font-weight: 500;
+  font-size: 1.75rem;
+}
+
+h4, h5, h6 {
+  font-weight: 500;
+}
+
+h4 { font-size: 1.5rem; }
+h5 { font-size: 1.25rem; }
+h6 { font-size: 1.125rem; }
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+  width: auto;
+  height: auto;
+  background: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+
+/* Focus visible for keyboard users */
+:focus-visible {
+  outline: 2px solid transparent;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.12);
+  border-radius: 0.75rem;
+}
+
+/* Corporate Design System Components */
+.card {
+  @apply bg-white rounded-corporate shadow-lg p-8 transition-all duration-300 hover:shadow-xl hover:scale-[1.02] border border-gray-100;
+}
+
+.card-premium {
+  @apply bg-white rounded-premium shadow-xl p-10 transition-all duration-300 hover:shadow-2xl hover:scale-[1.03] border border-gray-100;
+}
+
+.card-enterprise {
+  @apply bg-white rounded-corporate shadow-xl p-12 transition-all duration-300 hover:shadow-2xl hover:scale-[1.01] border border-gray-100;
+}
+
+.btn-primary {
+  @apply inline-flex items-center px-8 py-4 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-corporate font-medium text-lg hover:from-primary-600 hover:to-primary-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl;
+}
+
+.btn-primary-lg {
+  @apply inline-flex items-center px-12 py-5 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-corporate font-semibold text-xl hover:from-primary-600 hover:to-primary-700 transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl;
+}
+
+.btn-secondary {
+  @apply inline-flex items-center px-8 py-4 bg-white border-2 border-primary-500 text-primary-600 rounded-corporate font-medium text-lg hover:bg-primary-50 hover:border-primary-600 transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg;
+}
+
+.btn-accent {
+  @apply inline-flex items-center px-8 py-4 bg-gradient-to-r from-accent-500 to-accent-600 text-white rounded-corporate font-medium text-lg hover:from-accent-600 hover:to-accent-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl;
+}
+
+.btn-white {
+  @apply inline-flex items-center px-8 py-4 bg-white text-primary-600 rounded-corporate font-medium text-lg hover:bg-neutral-50 hover:text-primary-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl;
+}
+
+.btn-outline-white {
+  @apply inline-flex items-center px-8 py-4 border-2 border-white text-white rounded-corporate font-medium text-lg hover:bg-white hover:text-primary-600 transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg;
+}
+
+.hero-gradient {
+  @apply bg-gradient-to-br from-primary-950 via-secondary-800 to-primary-900;
+}
+
+.section-padding {
+  @apply py-20 md:py-24 lg:py-32;
+}
+
+.container-custom {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+/* Smooth animations */
+.animate-on-scroll {
+  @apply opacity-0 translate-y-8 transition-all duration-700 ease-out;
+}
+
+.animate-on-scroll.in-view {
+  @apply opacity-100 translate-y-0;
+}
+
+/* Enhanced hover animations */
+.hover-lift {
+  @apply transition-all duration-300 ease-out;
+}
+
+.hover-lift:hover {
+  @apply -translate-y-2 shadow-xl;
+}
+
+.hover-scale {
+  @apply transition-transform duration-300 ease-out;
+}
+
+.hover-scale:hover {
+  @apply scale-105;
+}
+
+.hover-glow {
+  @apply transition-all duration-300 ease-out;
+}
+
+.hover-glow:hover {
+  @apply shadow-2xl shadow-primary-500/20;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-neutral-100;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-neutral-400 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-neutral-500;
+}
+
+
+
+/* Image styling with curved corners */
+img, .image-container, .hero-image, .service-image, .about-image, .contact-image {
+  @apply rounded-2xl shadow-soft;
+}
+
+/* Responsive image component */
+.responsive-image {
+  @apply rounded-2xl overflow-hidden shadow-soft;
+}
+
+/* Global image styling for professional appearance */
+.image-container img, 
+img:not(.icon):not(.logo):not(.avatar) {
+  @apply object-cover rounded-xl shadow-lg;
+}
+
+/* Card images */
+.card img, .service-card img, .course-card img {
+  @apply rounded-xl object-cover shadow-lg;
+}
+
+/* Profile images and avatars */
+.profile-image, .avatar {
+  @apply rounded-full object-cover shadow-lg;
+}
+
+/* Gallery images */
+.gallery-image {
+  @apply rounded-xl shadow-soft hover:shadow-lg transition-all duration-300 object-cover;
+}
+
+/* Utility classes */
+.text-gradient {
+  @apply bg-gradient-to-r from-primary-600 to-accent-500 bg-clip-text text-transparent;
+}
+
+.bg-pattern {
+  background-image: radial-gradient(circle at 1px 1px, rgba(59, 130, 246, 0.1) 1px, transparent 0);
+  background-size: 20px 20px;
+}
+
+/* Typography classes */
+.heading-display {
+  @apply text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight tracking-tight;
+}
+
+.heading-xl {
+  @apply text-4xl md:text-5xl font-bold leading-tight tracking-tight;
+}
+
+.heading-lg {
+  @apply text-3xl md:text-4xl font-semibold leading-tight tracking-tight;
+}
+
+.heading-md {
+  @apply text-2xl md:text-3xl font-semibold leading-tight tracking-tight;
+}
+
+.heading-sm {
+  @apply text-xl md:text-2xl font-medium leading-tight tracking-tight;
+}
+
+.body-xl {
+  @apply text-xl md:text-2xl leading-relaxed font-light;
+}
+
+.body-lg {
+  @apply text-lg md:text-xl leading-relaxed font-normal;
+}
+
+.body-base {
+  @apply text-base md:text-lg leading-relaxed font-normal;
+}
+
+.body-sm {
+  @apply text-sm md:text-base leading-relaxed font-normal;
+}
