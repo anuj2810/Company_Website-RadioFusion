@@ -5,7 +5,7 @@ import ImageUpload from "../components/ImageUpload";
 import OptimizedImage from "../components/OptimizedImage";
 
 // WebP optimized image path
-const about = "/assets/about/banner.png";
+const about = "/assets/images/about/banner.webp";
 
 export default function About() {
     usePageTitle("About Us");

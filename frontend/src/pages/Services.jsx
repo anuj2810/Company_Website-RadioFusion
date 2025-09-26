@@ -5,10 +5,10 @@ import ImageUpload from "../components/ImageUpload";
 import OptimizedImage from "../components/OptimizedImage";
 
 // WebP optimized image paths
-const banner = "/assets/services/banner.png";
-const telecomImg = "/assets/services/telecom.png";
-const automationImg = "/assets/services/automation.png";
-const courseImg = "/assets/services/course.png";
+const banner = "/assets/images/services/banner.webp";
+const telecomImg = "/assets/images/services/telecom.webp";
+const automationImg = "/assets/images/services/automation.webp";
+const courseImg = "/assets/images/services/course.webp";
 
 export default function Services() {
     usePageTitle("Services");

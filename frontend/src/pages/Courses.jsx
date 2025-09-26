@@ -5,9 +5,9 @@ import ImageUpload from "../components/ImageUpload";
 import OptimizedImage from "../components/OptimizedImage";
 
 // WebP optimized image paths
-const banner = "/assets/course/banner.png";
-const empoweringFuture = "/assets/course/empower.png";
-const notify = "/assets/course/notify.png";
+const banner = "/assets/images/course/banner.webp";
+const empoweringFuture = "/assets/images/course/empower.webp";
+const notify = "/assets/images/course/notify.webp";
 
 export default function Courses() {
   usePageTitle("Courses");

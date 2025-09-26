@@ -97,8 +97,7 @@ dist
 
 # Gatsby files
 .cache/
-public
-
+*.env.example
 # Storybook build outputs
 .out
 .storybook-out

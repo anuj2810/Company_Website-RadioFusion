@@ -5,16 +5,16 @@ import ImageUpload from "../components/ImageUpload";
 import OptimizedImage from "../components/OptimizedImage";
 
 // Image paths for WebP optimization
-const bannerImage = "/assets/home/banner.png";
-const ctaImage = "/assets/home/cta.jpg";
-const aboutImg = "/assets/home/about.png";
-const telecom = "/assets/home/telecom.png";
-const automation = "/assets/home/automation.png";
-const course = "/assets/home/course.png";
-const innovationImg = "/assets/home/Innovation.jpg";
-const collaborationImg = "/assets/home/Collaboration.jpg";
-const commitmentImg = "/assets/home/Commitment.jpg";
-const growthImg = "/assets/home/Growth.jpg";
+const bannerImage = "/assets/images/home/banner.webp";
+const ctaImage = "/assets/images/home/cta.webp";
+const aboutImg = "/assets/images/home/about.webp";
+const telecom = "/assets/images/home/telecom.webp";
+const automation = "/assets/images/home/automation.webp";
+const course = "/assets/images/home/course.webp";
+const innovationImg = "/assets/images/home/Innovation.webp";
+const collaborationImg = "/assets/images/home/Collaboration.webp";
+const commitmentImg = "/assets/images/home/Commitment.webp";
+const growthImg = "/assets/images/home/Growth.webp";
 
 export default function Home() {
     usePageTitle("Home");

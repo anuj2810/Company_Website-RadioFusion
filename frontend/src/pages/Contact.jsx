@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { submitContact } from "../api/api";
 import usePageTitle from "../hooks/usePageTitle";
 import ImageUpload from "../components/ImageUpload";
-import banner from "../assets/contact/banner.png";
+import banner from "../assets/images/contact/banner.webp";
 
 export default function Contact() {
   usePageTitle("Contact Us");
