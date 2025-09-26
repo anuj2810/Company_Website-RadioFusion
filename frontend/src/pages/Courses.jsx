@@ -2,9 +2,12 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import usePageTitle from "../hooks/usePageTitle";
 import ImageUpload from "../components/ImageUpload";
-import banner from "../assets/course/banner.png";
-import empoweringFuture from "../assets/course/empower.png";
-import notify from "../assets/course/notify.png";
+import OptimizedImage from "../components/OptimizedImage";
+
+// WebP optimized image paths
+const banner = "/assets/course/banner.png";
+const empoweringFuture = "/assets/course/empower.png";
+const notify = "/assets/course/notify.png";
 
 export default function Courses() {
   usePageTitle("Courses");

@@ -2,7 +2,10 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import usePageTitle from "../hooks/usePageTitle";
 import ImageUpload from "../components/ImageUpload";
-import about from "../assets/about/banner.png";
+import OptimizedImage from "../components/OptimizedImage";
+
+// WebP optimized image path
+const about = "/assets/about/banner.png";
 
 export default function About() {
     usePageTitle("About Us");

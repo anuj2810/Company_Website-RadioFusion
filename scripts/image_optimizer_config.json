@@ -1,0 +1,58 @@
+{
+  "quality": 85,
+  "lossless": false,
+  "max_workers": 4,
+  "recursive": true,
+  "preserve_structure": true,
+  "create_backup": false,
+  "directories": [
+    {
+      "input": "frontend/src/assets",
+      "output": "frontend/src/assets/webp",
+      "quality": 85,
+      "description": "Frontend assets - standard quality for UI elements"
+    },
+    {
+      "input": "frontend/public",
+      "output": "frontend/public/webp",
+      "quality": 90,
+      "description": "Public images - higher quality for hero images"
+    }
+  ],
+  "exclude_patterns": [
+    "*.webp",
+    "**/node_modules/**",
+    "**/venv/**",
+    "**/.git/**",
+    "**/dist/**",
+    "**/build/**",
+    "**/__pycache__/**",
+    "**/migrations/**"
+  ],
+  "supported_formats": [
+    ".jpg",
+    ".jpeg",
+    ".png",
+    ".bmp",
+    ".tiff",
+    ".tif",
+    ".gif"
+  ],
+  "optimization_settings": {
+    "hero_images": {
+      "quality": 95,
+      "lossless": false,
+      "description": "High quality for hero/banner images"
+    },
+    "thumbnails": {
+      "quality": 75,
+      "lossless": false,
+      "description": "Lower quality for thumbnail images"
+    },
+    "icons": {
+      "quality": 90,
+      "lossless": true,
+      "description": "Lossless for icons and logos"
+    }
+  }
+}

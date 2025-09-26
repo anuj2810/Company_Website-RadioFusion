@@ -2,10 +2,13 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import usePageTitle from "../hooks/usePageTitle";
 import ImageUpload from "../components/ImageUpload";
-import banner from "../assets/services/banner.png";
-import telecomImg from "../assets/services/telecom.png";
-import automationImg from "../assets/services/automation.png";
-import courseImg from "../assets/services/course.png";
+import OptimizedImage from "../components/OptimizedImage";
+
+// WebP optimized image paths
+const banner = "/assets/services/banner.png";
+const telecomImg = "/assets/services/telecom.png";
+const automationImg = "/assets/services/automation.png";
+const courseImg = "/assets/services/course.png";
 
 export default function Services() {
     usePageTitle("Services");

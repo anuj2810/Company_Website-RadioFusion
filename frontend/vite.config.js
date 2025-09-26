@@ -6,5 +6,20 @@ export default defineConfig({
   plugins: [react()],
   server: {
     allowedHosts: ['92255e499adf.ngrok-free.app']
-  }
+  },
+  build: {
+    assetsDir: 'assets',
+    rollupOptions: {
+      output: {
+        assetFileNames: (assetInfo) => {
+          // Keep WebP images in their original structure
+          if (assetInfo.name && assetInfo.name.endsWith('.webp')) {
+            return 'assets/webp/[name].[hash][extname]'
+          }
+          return 'assets/[name].[hash][extname]'
+        }
+      }
+    }
+  },
+  assetsInclude: ['**/*.webp']
 })

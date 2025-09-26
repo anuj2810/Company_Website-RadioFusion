@@ -1,0 +1,115 @@
+{
+  "environments": {
+    "development": {
+      "optimize_images": true,
+      "quality": 85,
+      "lossless": false,
+      "watch_mode": true,
+      "incremental": true,
+      "description": "Development environment with moderate optimization for faster builds"
+    },
+    "production": {
+      "optimize_images": true,
+      "quality": 90,
+      "lossless": false,
+      "watch_mode": false,
+      "incremental": false,
+      "generate_responsive": true,
+      "description": "Production environment with high-quality optimization"
+    },
+    "testing": {
+      "optimize_images": false,
+      "use_placeholders": true,
+      "description": "Testing environment with minimal image processing"
+    }
+  },
+  "image_directories": [
+    {
+      "source": "frontend/src/assets/images",
+      "output": "frontend/src/assets/images/optimized",
+      "watch": true,
+      "description": "Frontend React assets"
+    },
+    {
+      "source": "frontend/public/images",
+      "output": "frontend/public/images/optimized",
+      "watch": true,
+      "description": "Public static images"
+    },
+    {
+      "source": "backend/static/images",
+      "output": "backend/static/images/optimized",
+      "watch": false,
+      "description": "Django static images"
+    },
+    {
+      "source": "backend/media/uploads",
+      "output": "backend/media/uploads/optimized",
+      "watch": true,
+      "description": "User uploaded content"
+    }
+  ],
+  "build_hooks": {
+    "pre_build": [
+      "optimize_images"
+    ],
+    "post_build": [
+      "generate_manifest",
+      "cleanup_temp"
+    ],
+    "watch": [
+      "optimize_new_images"
+    ]
+  },
+  "optimization_cache": {
+    "enabled": true,
+    "cache_dir": ".image_cache",
+    "max_age_days": 30,
+    "description": "Cache optimized images to speed up subsequent builds"
+  },
+  "responsive_breakpoints": {
+    "mobile": {
+      "max_width": 768,
+      "quality": 80,
+      "suffix": "_mobile"
+    },
+    "tablet": {
+      "max_width": 1024,
+      "quality": 85,
+      "suffix": "_tablet"
+    },
+    "desktop": {
+      "max_width": 1920,
+      "quality": 90,
+      "suffix": "_desktop"
+    }
+  },
+  "file_size_limits": {
+    "max_file_size_mb": 10,
+    "warn_file_size_mb": 2,
+    "compress_above_mb": 1
+  },
+  "supported_formats": {
+    "input": [
+      ".jpg",
+      ".jpeg",
+      ".png",
+      ".bmp",
+      ".tiff",
+      ".tif",
+      ".gif"
+    ],
+    "output": [
+      ".webp"
+    ]
+  },
+  "npm_integration": {
+    "auto_update_scripts": true,
+    "script_names": {
+      "optimize_dev": "optimize:images",
+      "optimize_prod": "optimize:images:prod",
+      "build_optimized": "build:optimized",
+      "dev_optimized": "dev:optimized"
+    }
+  }
+}

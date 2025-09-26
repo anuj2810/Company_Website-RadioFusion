@@ -2,16 +2,19 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import usePageTitle from "../hooks/usePageTitle";
 import ImageUpload from "../components/ImageUpload";
-import bannerImage from "../assets/home/banner.png";
-import ctaImage from "../assets/home/cta.jpg";
-import aboutImg from "../assets/home/about.png";
-import telecom from "../assets/home/telecom.png";
-import automation from "../assets/home/automation.png";
-import course from "../assets/home/course.png";
-import null1 from "../assets/home/Innovation.jpg";
-import null2 from "../assets/home/Collaboration.jpg";
-import null3 from "../assets/home/Commitment.jpg";
-import null4 from "../assets/home/Growth.jpg";
+import OptimizedImage from "../components/OptimizedImage";
+
+// Image paths for WebP optimization
+const bannerImage = "/assets/home/banner.png";
+const ctaImage = "/assets/home/cta.jpg";
+const aboutImg = "/assets/home/about.png";
+const telecom = "/assets/home/telecom.png";
+const automation = "/assets/home/automation.png";
+const course = "/assets/home/course.png";
+const innovationImg = "/assets/home/Innovation.jpg";
+const collaborationImg = "/assets/home/Collaboration.jpg";
+const commitmentImg = "/assets/home/Commitment.jpg";
+const growthImg = "/assets/home/Growth.jpg";
 
 export default function Home() {
     usePageTitle("Home");
@@ -41,10 +44,10 @@ export default function Home() {
     };
 
     const [coreValueImages, setCoreValueImages] = useState({
-        innovation: null1,
-        collaboration: null2,
-        commitment: null3,
-        growth: null4
+        innovation: innovationImg,
+        collaboration: collaborationImg,
+        commitment: commitmentImg,
+        growth: growthImg
     });
 
     const handleCoreValueImageChange = (valueType, imageUrl, file) => {
