@@ -20,6 +20,10 @@ const OptimizedImage = ({
   placeholder = null,
   onLoad = () => {},
   onError = () => {},
+  responsive = false,
+  mobileSize = 'w-full h-auto',
+  tabletSize = 'sm:w-full sm:h-auto',
+  desktopSize = 'md:w-full md:h-auto',
   ...props
 }) => {
   const [imageSrc, setImageSrc] = useState(placeholder);
@@ -199,12 +203,27 @@ const OptimizedImage = ({
     ].join(', ');
   };
 
+  // Generate responsive classes
+  const getResponsiveClasses = () => {
+    if (!responsive) return className;
+    
+    const responsiveClasses = [
+      mobileSize,
+      tabletSize,
+      desktopSize,
+      'object-cover', // Default object-fit for responsive images
+      'transition-all duration-300 ease-in-out' // Smooth transitions
+    ].filter(Boolean).join(' ');
+    
+    return `${responsiveClasses} ${className}`.trim();
+  };
+
   // Render loading placeholder
   if (isLoading && placeholder) {
     return (
       <div
         ref={imgRef}
-        className={`optimized-image-placeholder ${className}`}
+        className={`optimized-image-placeholder ${getResponsiveClasses()}`}
         style={{
           ...style,
           width: width || style.width || 'auto',
@@ -230,7 +249,7 @@ const OptimizedImage = ({
     return (
       <div
         ref={imgRef}
-        className={`optimized-image-error ${className}`}
+        className={`optimized-image-error ${getResponsiveClasses()}`}
         style={{
           ...style,
           width: width || style.width || 'auto',
@@ -255,7 +274,7 @@ const OptimizedImage = ({
       src={imageSrc}
       srcSet={generateSrcSet()}
       alt={alt}
-      className={`optimized-image ${isLoading ? 'loading' : 'loaded'} ${className}`}
+      className={`optimized-image ${isLoading ? 'loading' : 'loaded'} ${getResponsiveClasses()}`}
       style={{
         ...style,
         opacity: isLoading ? 0.5 : 1,
@@ -282,7 +301,11 @@ OptimizedImage.propTypes = {
   quality: PropTypes.number,
   placeholder: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   onLoad: PropTypes.func,
-  onError: PropTypes.func
+  onError: PropTypes.func,
+  responsive: PropTypes.bool,
+  mobileSize: PropTypes.string,
+  tabletSize: PropTypes.string,
+  desktopSize: PropTypes.string
 };
 
 export default OptimizedImage;

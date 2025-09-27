@@ -93,7 +93,8 @@ const ImageUpload = ({
             <img
               src={previewImage}
               alt={alt}
-              className={`w-full h-full object-cover ${shapeClasses}`}
+              className={`w-full h-full object-cover object-center ${shapeClasses}`}
+              style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center' }}
             />
             {overlayContent && (
               <div className="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center">

@@ -9,11 +9,11 @@ export default function Nav() {
     <header className="bg-white/95 backdrop-blur-md shadow-soft border-b border-neutral-200/50 sticky top-0 z-50">
       <a href="#main" className="skip-link">Skip to content</a>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
-        <NavLink to="/" className="flex items-center space-x-3 text-2xl font-bold bg-gradient-to-r from-primary-600 to-accent-600 bg-clip-text text-transparent hover:from-primary-700 hover:to-accent-700 transition-all duration-300">
+        <NavLink to="/" className="flex items-center space-x-2 sm:space-x-3 text-lg sm:text-xl md:text-2xl font-bold bg-gradient-to-r from-primary-600 to-accent-600 bg-clip-text text-transparent hover:from-primary-700 hover:to-accent-700 transition-all duration-300">
           <img 
             src={icon} 
             alt="RadioFusion Global Logo" 
-            className="w-10 h-10 object-contain"
+            className="w-8 h-8 sm:w-10 sm:h-10 object-contain flex-shrink-0"
             loading="eager"
             onLoad={() => console.log('Logo loaded successfully')}
             onError={(e) => {
@@ -24,7 +24,8 @@ export default function Nav() {
               }
             }}
           />
-          <span>RadioFusion Global </span>
+          <span className="hidden xs:inline sm:inline">RadioFusion Global</span>
+          <span className="xs:hidden sm:hidden">RFG</span>
         </NavLink>
         <nav className="hidden md:flex space-x-8" aria-label="Primary">
           <NavLink 
