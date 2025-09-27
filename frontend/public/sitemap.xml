@@ -4,13 +4,67 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
 
-
+<!-- Home Page -->
 <url>
   <loc>https://radiofusionglobal.com/</loc>
-  <lastmod>2025-09-26T11:53:07+00:00</lastmod>
+  <lastmod>2025-01-27T12:00:00+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>1.0</priority>
 </url>
 
+<!-- About Page -->
+<url>
+  <loc>https://radiofusionglobal.com/about</loc>
+  <lastmod>2025-01-27T12:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
+
+<!-- Services Page -->
+<url>
+  <loc>https://radiofusionglobal.com/services</loc>
+  <lastmod>2025-01-27T12:00:00+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.9</priority>
+</url>
+
+<!-- Service Detail Pages -->
+<url>
+  <loc>https://radiofusionglobal.com/services/telecom</loc>
+  <lastmod>2025-01-27T12:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
+</url>
+
+<url>
+  <loc>https://radiofusionglobal.com/services/automation</loc>
+  <lastmod>2025-01-27T12:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
+</url>
+
+<url>
+  <loc>https://radiofusionglobal.com/services/education</loc>
+  <lastmod>2025-01-27T12:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
+</url>
+
+<!-- Courses Page -->
+<url>
+  <loc>https://radiofusionglobal.com/courses</loc>
+  <lastmod>2025-01-27T12:00:00+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+
+<!-- Contact Page -->
+<url>
+  <loc>https://radiofusionglobal.com/contact</loc>
+  <lastmod>2025-01-27T12:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
 
 </urlset>
