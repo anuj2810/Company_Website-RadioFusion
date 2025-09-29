@@ -1,5 +1,6 @@
 import React, { Suspense, lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
 import { Nav } from './components';
 import ScrollToTop from './components/ScrollToTop';
 
@@ -12,10 +13,11 @@ const Contact = lazy(() => import('./pages/Contact'));
 
 function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-neutral-50 via-white to-neutral-100">
-      <ScrollToTop />
-      <Nav />
-      <main className="relative">
+    <HelmetProvider>
+      <div className="min-h-screen bg-gradient-to-br from-neutral-50 via-white to-neutral-100">
+        <ScrollToTop />
+        <Nav />
+        <main className="relative">
         <Suspense fallback={<div className="flex items-center justify-center min-h-screen"><div className="animate-spin rounded-full h-32 w-32 border-b-2 border-primary-600"></div></div>}>
           <Routes>
             <Route path="/" element={<Home />} />
@@ -132,6 +134,7 @@ function App() {
         </div>
       </footer>
     </div>
+    </HelmetProvider>
   );
 }
 

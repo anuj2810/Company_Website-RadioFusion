@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 import usePageTitle from "../hooks/usePageTitle";
 import ImageUpload from "../components/ImageUpload";
 import OptimizedImage from "../components/OptimizedImage";
@@ -17,7 +18,27 @@ export default function About() {
         setAboutHeroImage(imageUrl);
     };
     return (
-        <div className="min-h-screen bg-background">
+        <>
+            <Helmet>
+                <title>About RadioFusion Global - Our Story & Mission</title>
+                <meta name="description" content="Learn about RadioFusion Global's journey, mission, and commitment to delivering innovative technology solutions and comprehensive training programs." />
+                <meta name="keywords" content="about RadioFusion Global, company story, mission, technology solutions, training programs, innovation" />
+                <link rel="canonical" href="https://mycompany.com/about" />
+                
+                {/* Open Graph Tags */}
+                <meta property="og:title" content="About RadioFusion Global - Our Story & Mission" />
+                <meta property="og:description" content="Learn about RadioFusion Global's journey, mission, and commitment to delivering innovative technology solutions and comprehensive training programs." />
+                <meta property="og:image" content="https://mycompany.com/assets/images/about/banner.webp" />
+                <meta property="og:url" content="https://mycompany.com/about" />
+                <meta property="og:type" content="website" />
+                
+                {/* Twitter Card Tags */}
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content="About RadioFusion Global - Our Story & Mission" />
+                <meta name="twitter:description" content="Learn about RadioFusion Global's journey, mission, and commitment to delivering innovative technology solutions and comprehensive training programs." />
+                <meta name="twitter:image" content="https://mycompany.com/assets/images/about/banner.webp" />
+            </Helmet>
+            <main className="min-h-screen bg-background">
             {/* Hero Banner with Image Upload Support */}
             <section className="relative min-h-screen section-padding overflow-hidden rounded-hero">
                 {/* Hero Background Image Container */}
@@ -345,6 +366,7 @@ export default function About() {
                     </Link>
                 </div>
             </section>
-        </div>
+        </main>
+        </>
     );
 }

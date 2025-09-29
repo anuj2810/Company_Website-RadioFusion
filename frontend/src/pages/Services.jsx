@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 import usePageTitle from "../hooks/usePageTitle";
 import ImageUpload from "../components/ImageUpload";
 import OptimizedImage from "../components/OptimizedImage";
@@ -32,7 +33,27 @@ export default function Services() {
         }));
     };
     return (
-        <div className="min-h-screen bg-background">
+        <>
+            <Helmet>
+                <title>Services - RadioFusion Global Technology Solutions</title>
+                <meta name="description" content="Explore RadioFusion Global's comprehensive technology services including telecommunications, automation solutions, and professional training programs." />
+                <meta name="keywords" content="technology services, telecommunications, automation, training programs, RadioFusion Global services" />
+                <link rel="canonical" href="https://mycompany.com/services" />
+                
+                {/* Open Graph Tags */}
+                <meta property="og:title" content="Services - RadioFusion Global Technology Solutions" />
+                <meta property="og:description" content="Explore RadioFusion Global's comprehensive technology services including telecommunications, automation solutions, and professional training programs." />
+                <meta property="og:image" content="https://mycompany.com/assets/images/services/banner.webp" />
+                <meta property="og:url" content="https://mycompany.com/services" />
+                <meta property="og:type" content="website" />
+                
+                {/* Twitter Card Tags */}
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content="Services - RadioFusion Global Technology Solutions" />
+                <meta name="twitter:description" content="Explore RadioFusion Global's comprehensive technology services including telecommunications, automation solutions, and professional training programs." />
+                <meta name="twitter:image" content="https://mycompany.com/assets/images/services/banner.webp" />
+            </Helmet>
+            <main className="min-h-screen bg-background">
             {/* Hero Banner with Image Upload Support */}
             <section className="relative min-h-screen flex items-center justify-center overflow-hidden rounded-b-hero">
                 {/* Hero Background Image Container */}
@@ -404,6 +425,7 @@ export default function Services() {
                     </div>
                 </div>
             </section>
-        </div>
+        </main>
+        </>
     );
 }

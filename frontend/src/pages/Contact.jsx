@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { submitContact } from "../api/api";
 import usePageTitle from "../hooks/usePageTitle";
 import ImageUpload from "../components/ImageUpload";
@@ -134,7 +135,27 @@ export default function Contact() {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <>
+      <Helmet>
+        <title>Contact Us - RadioFusion Global</title>
+        <meta name="description" content="Get in touch with RadioFusion Global for inquiries about our technology solutions, training programs, and services. Contact us today!" />
+        <meta name="keywords" content="contact RadioFusion Global, get in touch, inquiries, technology solutions, training programs" />
+        <link rel="canonical" href="https://mycompany.com/contact" />
+        
+        {/* Open Graph Tags */}
+        <meta property="og:title" content="Contact Us - RadioFusion Global" />
+        <meta property="og:description" content="Get in touch with RadioFusion Global for inquiries about our technology solutions, training programs, and services. Contact us today!" />
+        <meta property="og:image" content="https://mycompany.com/assets/images/contact/banner.webp" />
+        <meta property="og:url" content="https://mycompany.com/contact" />
+        <meta property="og:type" content="website" />
+        
+        {/* Twitter Card Tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Contact Us - RadioFusion Global" />
+        <meta name="twitter:description" content="Get in touch with RadioFusion Global for inquiries about our technology solutions, training programs, and services. Contact us today!" />
+        <meta name="twitter:image" content="https://mycompany.com/assets/images/contact/banner.webp" />
+      </Helmet>
+      <main className="min-h-screen bg-background">
       {/* Hero Banner with Image Upload Support */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Hero Background Image Container */}
@@ -494,6 +515,7 @@ export default function Contact() {
           </div>
         </div>
       </section>
-    </div>
+    </main>
+    </>
   );
 }

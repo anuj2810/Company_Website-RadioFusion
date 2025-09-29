@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 import usePageTitle from "../hooks/usePageTitle";
 import ImageUpload from "../components/ImageUpload";
 import OptimizedImage from "../components/OptimizedImage";
@@ -63,7 +64,27 @@ export default function Home() {
      };
 
      return (
-         <div className="min-h-screen">
+         <>
+             <Helmet>
+                 <title>RadioFusion Global - Innovative Technology Solutions & Training</title>
+                 <meta name="description" content="RadioFusion Global provides cutting-edge technology solutions, telecommunications services, automation systems, and comprehensive training programs to empower businesses and individuals." />
+                 <meta name="keywords" content="technology solutions, telecommunications, automation, training programs, RadioFusion Global, innovation, business solutions" />
+                 <link rel="canonical" href="https://mycompany.com/" />
+                 
+                 {/* Open Graph Tags */}
+                 <meta property="og:title" content="RadioFusion Global - Innovative Technology Solutions & Training" />
+                 <meta property="og:description" content="RadioFusion Global provides cutting-edge technology solutions, telecommunications services, automation systems, and comprehensive training programs to empower businesses and individuals." />
+                 <meta property="og:image" content="https://mycompany.com/assets/images/home/banner.webp" />
+                 <meta property="og:url" content="https://mycompany.com/" />
+                 <meta property="og:type" content="website" />
+                 
+                 {/* Twitter Card Tags */}
+                 <meta name="twitter:card" content="summary_large_image" />
+                 <meta name="twitter:title" content="RadioFusion Global - Innovative Technology Solutions & Training" />
+                 <meta name="twitter:description" content="RadioFusion Global provides cutting-edge technology solutions, telecommunications services, automation systems, and comprehensive training programs to empower businesses and individuals." />
+                 <meta name="twitter:image" content="https://mycompany.com/assets/images/home/banner.webp" />
+             </Helmet>
+             <main className="min-h-screen">
             <section className="relative w-full overflow-hidden" style={{ height: '100vh', minHeight: '100vh' }}>
                 {/* Hero Background Image Container */}
                 <div className="absolute inset-0 w-full h-full">
@@ -603,6 +624,7 @@ export default function Home() {
                     </Link>
                 </div>
             </section>
-        </div>
+        </main>
+        </>
     );
 }

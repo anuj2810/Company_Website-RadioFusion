@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import usePageTitle from "../hooks/usePageTitle";
 import ImageUpload from "../components/ImageUpload";
 import OptimizedImage from "../components/OptimizedImage";
@@ -47,7 +48,27 @@ export default function Courses() {
   };
 
   return (
-    <div className="min-h-screen bg-neutral-50">
+    <>
+      <Helmet>
+        <title>Courses - RadioFusion Global Training Programs</title>
+        <meta name="description" content="Discover RadioFusion Global's comprehensive training courses and educational programs designed to enhance your skills in technology and automation." />
+        <meta name="keywords" content="training courses, educational programs, technology training, automation courses, RadioFusion Global courses" />
+        <link rel="canonical" href="https://mycompany.com/courses" />
+        
+        {/* Open Graph Tags */}
+        <meta property="og:title" content="Courses - RadioFusion Global Training Programs" />
+        <meta property="og:description" content="Discover RadioFusion Global's comprehensive training courses and educational programs designed to enhance your skills in technology and automation." />
+        <meta property="og:image" content="https://mycompany.com/assets/images/course/banner.webp" />
+        <meta property="og:url" content="https://mycompany.com/courses" />
+        <meta property="og:type" content="website" />
+        
+        {/* Twitter Card Tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Courses - RadioFusion Global Training Programs" />
+        <meta name="twitter:description" content="Discover RadioFusion Global's comprehensive training courses and educational programs designed to enhance your skills in technology and automation." />
+        <meta name="twitter:image" content="https://mycompany.com/assets/images/course/banner.webp" />
+      </Helmet>
+      <main className="min-h-screen bg-neutral-50">
       {/* Hero Banner with Image Upload Support */}
       <section className="relative min-h-screen py-12 sm:py-16 md:py-24 overflow-hidden">
         {/* Hero Background Image Container */}
@@ -396,6 +417,7 @@ export default function Courses() {
           </Link>
         </div>
       </section>
-    </div>
+    </main>
+    </>
   );
 }
