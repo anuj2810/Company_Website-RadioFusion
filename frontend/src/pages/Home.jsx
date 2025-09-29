@@ -6,6 +6,7 @@ import OptimizedImage from "../components/OptimizedImage";
 
 // Image paths for WebP optimization
 const bannerImage = "/assets/images/home/banner.webp";
+const banner1 = "/assets/images/home/banner1.webp";
 const ctaImage = "/assets/images/home/cta.webp";
 const aboutImg = "/assets/images/home/about.webp";
 const telecom = "/assets/images/home/telecom.webp";
@@ -69,6 +70,7 @@ export default function Home() {
                     <ImageUpload
                         currentImage={heroImage}
                         onImageChange={handleHeroImageChange}
+                        mobileImage={banner1}
                         className="w-full h-full object-cover object-center"
                         containerClassName="w-full h-full"
                         fallbackGradient="from-primary-950 via-primary-800 to-secondary-800"

@@ -264,10 +264,10 @@ export default function ServiceDetail() {
                 <div className="bg-accent-50 text-accent-700 px-6 py-3 rounded-2xl font-medium">
                   Professional
                 </div>
-                <div className="bg-primary-50 text-primary-700 px-6 py-3 rounded-2xl font-medium">
+                <div className="bg-accent-50 text-primary-700 px-6 py-3 rounded-2xl font-medium">
                   Reliable
                 </div>
-                <div className="bg-secondary-50 text-secondary-700 px-6 py-3 rounded-2xl font-medium">
+                <div className="bg-accent-50 text-secondary-700 px-6 py-3 rounded-2xl font-medium">
                   Innovative
                 </div>
               </div>

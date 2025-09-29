@@ -6,7 +6,7 @@ import OptimizedImage from "../components/OptimizedImage";
 
 // WebP optimized image paths
 const banner = "/assets/images/course/banner.webp";
-const empoweringFuture = "/assets/images/course/empower.webp";
+const empoweringFuture = "/assets/images/course/banner1.webp";
 const notify = "/assets/images/course/notify.webp";
 
 export default function Courses() {
@@ -55,6 +55,7 @@ export default function Courses() {
           <ImageUpload
             currentImage={coursesHeroImage}
             onImageChange={handleCoursesHeroImageChange}
+            mobileImage={empoweringFuture}
             className="w-full h-full"
             containerClassName="w-full h-full"
             fallbackGradient="from-primary-900 via-primary-800 to-accent-900"
@@ -89,35 +90,6 @@ export default function Courses() {
             <svg className="w-6 h-6 sm:w-9 sm:h-9 md:w-12 md:h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
             </svg>
-          </div>
-        </div>
-
-        {/* Hero Content */}
-        <div className="relative z-20 flex items-center justify-center min-h-screen px-4 sm:px-6 md:px-8">
-          <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6 md:mb-8 leading-tight">
-              Learn. Build. Grow.
-            </h1>
-            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 mb-6 sm:mb-8 md:mb-12 leading-relaxed max-w-3xl mx-auto">
-              Comprehensive training programs designed to bridge the gap between academic learning and industry requirements.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center">
-              <Link 
-                to="#notify"
-                className="inline-flex items-center justify-center px-6 sm:px-8 md:px-12 py-3 sm:py-4 md:py-5 bg-gradient-to-r from-primary to-secondary text-white rounded-lg font-bold text-sm sm:text-base md:text-lg hover:from-primary/90 hover:to-secondary/90 transition-all duration-300 transform hover:scale-105 shadow-2xl"
-              >
-                Get Notified
-                <svg className="ml-2 w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                </svg>
-              </Link>
-              <Link 
-                to="/about"
-                className="inline-flex items-center justify-center px-6 sm:px-8 md:px-12 py-3 sm:py-4 md:py-5 bg-white/10 backdrop-blur-sm text-white rounded-lg font-bold text-sm sm:text-base md:text-lg hover:bg-white/20 transition-all duration-300 border border-white/20"
-              >
-                Learn More
-              </Link>
-            </div>
           </div>
         </div>
       </section>

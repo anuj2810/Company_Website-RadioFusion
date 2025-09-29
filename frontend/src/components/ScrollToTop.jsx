@@ -4,13 +4,16 @@ import { useLocation } from 'react-router-dom';
 const ScrollToTop = () => {
   const { pathname } = useLocation();
 
+  // Ensure browser doesn't restore scroll position automatically
   useEffect(() => {
-    // Scroll to top when pathname changes
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: 'smooth' // Optional: adds smooth scrolling animation
-    });
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+  }, []);
+
+  useEffect(() => {
+    // Instantly scroll to the top on route change
+    window.scrollTo(0, 0);
   }, [pathname]);
 
   return null; // This component doesn't render anything

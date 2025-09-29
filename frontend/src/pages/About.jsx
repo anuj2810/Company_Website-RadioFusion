@@ -4,8 +4,9 @@ import usePageTitle from "../hooks/usePageTitle";
 import ImageUpload from "../components/ImageUpload";
 import OptimizedImage from "../components/OptimizedImage";
 
-// WebP optimized image path
+// WebP optimized image paths
 const about = "/assets/images/about/banner.webp";
+const aboutMobile = "/assets/images/about/banner1.webp";
 
 export default function About() {
     usePageTitle("About Us");
@@ -24,6 +25,7 @@ export default function About() {
                     <ImageUpload
                         currentImage={aboutHeroImage}
                         onImageChange={handleAboutHeroImageChange}
+                        mobileImage={aboutMobile}
                         className="w-full h-full"
                         containerClassName="w-full h-full"
                         fallbackGradient="from-primary-950 via-primary-800 to-secondary-800"

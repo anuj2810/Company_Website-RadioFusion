@@ -6,6 +6,7 @@ import OptimizedImage from "../components/OptimizedImage";
 
 // WebP optimized image paths
 const banner = "/assets/images/services/banner.webp";
+const banner1 = "/assets/images/services/banner1.webp";
 const telecomImg = "/assets/images/services/telecom.webp";
 const automationImg = "/assets/images/services/automation.webp";
 const courseImg = "/assets/images/services/course.webp";
@@ -39,6 +40,7 @@ export default function Services() {
                     <ImageUpload
                         currentImage={servicesHeroImage}
                         onImageChange={handleServicesHeroImageChange}
+                        mobileImage={banner1}
                         className="w-full h-full"
                         containerClassName="w-full h-full"
                         fallbackGradient="from-primary-800 via-primary-700 to-accent-700"

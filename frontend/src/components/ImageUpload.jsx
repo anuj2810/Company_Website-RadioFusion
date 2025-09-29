@@ -6,11 +6,12 @@ const ImageUpload = ({
   className = "", 
   containerClassName = "",
   fallbackGradient = "from-blue-600 to-purple-600",
-  shape = "rectangle", // rectangle, circle
-  aspectRatio = "aspect-video", // aspect-video, aspect-square, aspect-[3/4], etc.
+  shape = "rectangle",
+  aspectRatio = "aspect-video",
   showUploadButton = true,
   overlayContent = null,
-  alt = "Uploaded image"
+  alt = "Uploaded image",
+  mobileImage = null
 }) => {
   const [dragActive, setDragActive] = useState(false);
   const [previewImage, setPreviewImage] = useState(currentImage);
@@ -90,12 +91,15 @@ const ImageUpload = ({
       >
         {previewImage ? (
           <>
-            <img
-              src={previewImage}
-              alt={alt}
-              className={`w-full h-full object-cover object-center ${shapeClasses}`}
-              style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center' }}
-            />
+            <picture>
+              <source media="(max-width: 768px)" srcSet={mobileImage || previewImage || currentImage} />
+              <img
+                src={previewImage}
+                alt={alt}
+                className={`w-full h-full object-cover object-center ${shapeClasses}`}
+                style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center' }}
+              />
+            </picture>
             {overlayContent && (
               <div className="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center">
                 {overlayContent}
