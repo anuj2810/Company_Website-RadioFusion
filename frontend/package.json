@@ -12,7 +12,6 @@
     "e2e": "playwright test",
     "lint": "eslint 'src/**/*.{js,jsx}' --fix",
     "format": "prettier --write 'src/**/*.{js,jsx,css,md}'",
-    "postbuild": "react-snap",
     "generate:sitemap": "node scripts/generate-sitemap.cjs",
     "seo:optimize": "npm run generate:sitemap && npm run build"
   },
