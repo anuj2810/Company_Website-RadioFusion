@@ -29,85 +29,7 @@ export default function Contact() {
     setContactHeroImage(imageUrl);
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    
-    // Clear any previous status and set loading
-    setStatus("loading");
-    setSuccessMessage("");
-    setErrorMessage("");
-    
-    // Validate required fields
-    if (!form.name.trim()) {
-      setStatus("error");
-      setErrorMessage("Name is required.");
-      return;
-    }
-    
-    if (!form.email.trim()) {
-      setStatus("error");
-      setErrorMessage("Email is required.");
-      return;
-    }
-    
-    if (!form.subject.trim()) {
-      setStatus("error");
-      setErrorMessage("Subject is required.");
-      return;
-    }
-    
-    if (!form.message.trim()) {
-      setStatus("error");
-      setErrorMessage("Message is required.");
-      return;
-    }
-    
-    // Validate email format
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(form.email)) {
-      setStatus("error");
-      setErrorMessage("Please enter a valid email address.");
-      return;
-    }
-    
-    // Validate field lengths
-    if (form.name.length > 100) {
-      setStatus("error");
-      setErrorMessage("Name must be less than 100 characters.");
-      return;
-    }
-    
-    if (form.email.length > 254) {
-      setStatus("error");
-      setErrorMessage("Email must be less than 254 characters.");
-      return;
-    }
-    
-    if (form.subject.length > 200) {
-      setStatus("error");
-      setErrorMessage("Subject must be less than 200 characters.");
-      return;
-    }
-    
-    if (form.message.length > 1000) {
-      setStatus("error");
-      setErrorMessage("Message must be less than 1000 characters.");
-      return;
-    }
-    
-    // Validate phone if provided
-    if (form.phone && form.phone.length > 20) {
-      setStatus("error");
-      setErrorMessage("Phone number must be less than 20 characters.");
-      return;
-    }
-
-    // No backend: simulate successful submission locally
-    await new Promise((r) => setTimeout(r, 600));
-    setStatus("success");
-    setSuccessMessage("Your message has been sent successfully! We will get back to you soon.");
-    setForm({ name: '', email: '', phone: '', subject: '', message: '' });
-  };
+  // Using native form submission so Netlify reCAPTCHA can validate
 
   return (
     <>
@@ -284,7 +206,18 @@ export default function Contact() {
           </div>
 
           <div className="bg-white rounded-3xl shadow-lg p-8 md:p-12 border border-gray-100">
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form 
+              name="contact"
+              method="POST"
+              data-netlify="true"
+              data-netlify-honeypot="bot-field"
+              data-netlify-recaptcha="true"
+              action="/contact?status=success"
+              className="space-y-6"
+            >
+              {/* Netlify hidden fields */}
+              <input type="hidden" name="form-name" value="contact" />
+              <input type="text" name="bot-field" className="hidden" aria-hidden="true" />
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-semibold text-foreground mb-2">
@@ -364,6 +297,9 @@ export default function Contact() {
                   placeholder="Tell us more about your project, questions, or how we can help..."
                 ></textarea>
               </div>
+
+              {/* Netlify reCAPTCHA placeholder */}
+              <div data-netlify-recaptcha="true"></div>
 
               <div className="text-center">
                 <button 

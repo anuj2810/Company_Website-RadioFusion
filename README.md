@@ -34,14 +34,24 @@ This repository now hosts a pure frontend static website built with Vite + React
 - `npm run test:e2e` — Run E2E tests (Playwright)
 
 ## Deployment
-This site is configured for Azure Static Web Apps via GitHub Actions (`.github/workflows/azure-static-web-apps*.yml`).
+This site is deployed on Netlify as a static SPA.
 
-- App location: `/frontend`
-- Output location: `dist`
-- No API functions are used or deployed.
+### Option A — Drag & Drop
+- Build locally: `cd frontend && npm run build` (outputs to `frontend/dist`)
+- Drag and drop the `frontend/dist` folder into the Netlify dashboard.
+
+### Option B — Connect GitHub
+- In Netlify, set:
+  - Base directory: `frontend`
+  - Build command: `npm run build`
+  - Publish directory: `dist`
+- A basic Netlify configuration is included at `frontend/netlify.toml` with an SPA redirect.
+
+### Notes
+- No backend, databases, or server-side APIs are present.
+- The site works as a pure static build.
 
 ## Notes
-- No backend, databases, or server-side APIs are present.
 - All API helpers were removed (`frontend/src/api` deleted) and pages use local-only interactions.
 - Image optimizer scripts remain under `scripts/` for frontend asset processing.
 

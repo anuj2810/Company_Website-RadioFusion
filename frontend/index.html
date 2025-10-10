@@ -43,9 +43,20 @@
     <link rel="manifest" href="/site.webmanifest" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>RadioFusion Global India</title>
+    <!-- Netlify reCAPTCHA script -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   </head>
   <body>
     <div id="root"></div>
+    <!-- Hidden Netlify form for build-time detection -->
+    <form name="contact" data-netlify="true" netlify-honeypot="bot-field" data-netlify-recaptcha="true" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="tel" name="phone" />
+      <input type="text" name="subject" />
+      <textarea name="message"></textarea>
+      <div data-netlify-recaptcha="true"></div>
+    </form>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
