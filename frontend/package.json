@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "postbuild": "node scripts/generate-sitemap.cjs --dist",
     "preview": "vite preview",
     "test": "jest --config jest.config.cjs",
     "test:watch": "jest --watch",
@@ -13,7 +14,7 @@
     "lint": "eslint 'src/**/*.{js,jsx}' --fix",
     "format": "prettier --write 'src/**/*.{js,jsx,css,md}'",
     "generate:sitemap": "node scripts/generate-sitemap.cjs",
-    "seo:optimize": "npm run generate:sitemap && npm run build"
+    "seo:optimize": "npm run build"
   },
   "dependencies": {
     "react": "^18.2.0",

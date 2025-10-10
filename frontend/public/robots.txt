@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://mycompany.com/sitemap.xml
+Sitemap: /sitemap.xml
 
 # Crawl-delay for all bots
 Crawl-delay: 1

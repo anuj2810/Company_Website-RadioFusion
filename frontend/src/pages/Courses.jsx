@@ -12,6 +12,7 @@ const notify = "/assets/images/course/notify.webp";
 
 export default function Courses() {
   usePageTitle("Courses");
+  const siteUrl = import.meta.env.VITE_SITE_URL || 'https://mycompany.com';
   
   const [form, setForm] = useState({ name: "", email: "" });
   const [status, setStatus] = useState(null);
@@ -53,20 +54,55 @@ export default function Courses() {
         <title>Courses - RadioFusion Global Training Programs</title>
         <meta name="description" content="Discover RadioFusion Global's comprehensive training courses and educational programs designed to enhance your skills in technology and automation." />
         <meta name="keywords" content="training courses, educational programs, technology training, automation courses, RadioFusion Global courses" />
-        <link rel="canonical" href="https://mycompany.com/courses" />
+        <link rel="canonical" href={`${siteUrl}/courses`} />
         
         {/* Open Graph Tags */}
         <meta property="og:title" content="Courses - RadioFusion Global Training Programs" />
         <meta property="og:description" content="Discover RadioFusion Global's comprehensive training courses and educational programs designed to enhance your skills in technology and automation." />
-        <meta property="og:image" content="https://mycompany.com/assets/images/course/banner.webp" />
-        <meta property="og:url" content="https://mycompany.com/courses" />
+        <meta property="og:image" content={`${siteUrl}/assets/images/course/banner.webp`} />
+        <meta property="og:url" content={`${siteUrl}/courses`} />
         <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="RadioFusion Global" />
+        <meta property="og:locale" content="en_IN" />
         
         {/* Twitter Card Tags */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Courses - RadioFusion Global Training Programs" />
         <meta name="twitter:description" content="Discover RadioFusion Global's comprehensive training courses and educational programs designed to enhance your skills in technology and automation." />
-        <meta name="twitter:image" content="https://mycompany.com/assets/images/course/banner.webp" />
+        <meta name="twitter:image" content={`${siteUrl}/assets/images/course/banner.webp`} />
+        <meta name="twitter:site" content="@RadioFusionGlobal" />
+
+        {/* JSON-LD: Breadcrumbs for Courses */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              { '@type': 'ListItem', position: 1, name: 'Home', item: `${siteUrl}/` },
+              { '@type': 'ListItem', position: 2, name: 'Courses', item: `${siteUrl}/courses` }
+            ]
+          })}
+        </script>
+
+        {/* JSON-LD: Example Course (minimal) */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'ItemList',
+            itemListElement: [
+              {
+                '@type': 'Course',
+                name: 'Foundational Technology Training',
+                description: 'Introductory program covering core technology and automation concepts.',
+                provider: {
+                  '@type': 'Organization',
+                  name: 'RadioFusion Global'
+                },
+                url: `${siteUrl}/courses`
+              }
+            ]
+          })}
+        </script>
       </Helmet>
       <main className="min-h-screen bg-neutral-50">
       {/* Hero Banner with Image Upload Support */}

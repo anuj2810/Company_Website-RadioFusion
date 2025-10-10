@@ -14,6 +14,7 @@ const courseImg = "/assets/images/services/course.webp";
 
 export default function Services() {
     usePageTitle("Services");
+    const siteUrl = import.meta.env.VITE_SITE_URL || 'https://mycompany.com';
     
     const [servicesHeroImage, setServicesHeroImage] = useState(banner);
     const [serviceImages, setServiceImages] = useState({
@@ -38,20 +39,60 @@ export default function Services() {
                 <title>Services - RadioFusion Global Technology Solutions</title>
                 <meta name="description" content="Explore RadioFusion Global's comprehensive technology services including telecommunications, automation solutions, and professional training programs." />
                 <meta name="keywords" content="technology services, telecommunications, automation, training programs, RadioFusion Global services" />
-                <link rel="canonical" href="https://mycompany.com/services" />
+                <link rel="canonical" href={`${siteUrl}/services`} />
                 
                 {/* Open Graph Tags */}
                 <meta property="og:title" content="Services - RadioFusion Global Technology Solutions" />
                 <meta property="og:description" content="Explore RadioFusion Global's comprehensive technology services including telecommunications, automation solutions, and professional training programs." />
-                <meta property="og:image" content="https://mycompany.com/assets/images/services/banner.webp" />
-                <meta property="og:url" content="https://mycompany.com/services" />
+                <meta property="og:image" content={`${siteUrl}/assets/images/services/banner.webp`} />
+                <meta property="og:url" content={`${siteUrl}/services`} />
                 <meta property="og:type" content="website" />
+                <meta property="og:site_name" content="RadioFusion Global" />
+                <meta property="og:locale" content="en_IN" />
                 
                 {/* Twitter Card Tags */}
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:title" content="Services - RadioFusion Global Technology Solutions" />
                 <meta name="twitter:description" content="Explore RadioFusion Global's comprehensive technology services including telecommunications, automation solutions, and professional training programs." />
-                <meta name="twitter:image" content="https://mycompany.com/assets/images/services/banner.webp" />
+                <meta name="twitter:image" content={`${siteUrl}/assets/images/services/banner.webp`} />
+                <meta name="twitter:site" content="@RadioFusionGlobal" />
+
+                {/* JSON-LD: Breadcrumbs for Services */}
+                <script type="application/ld+json">
+                  {JSON.stringify({
+                    '@context': 'https://schema.org',
+                    '@type': 'BreadcrumbList',
+                    itemListElement: [
+                      { '@type': 'ListItem', position: 1, name: 'Home', item: `${siteUrl}/` },
+                      { '@type': 'ListItem', position: 2, name: 'Services', item: `${siteUrl}/services` }
+                    ]
+                  })}
+                </script>
+
+                {/* JSON-LD: Services offered (minimal) */}
+                <script type="application/ld+json">
+                  {JSON.stringify({
+                    '@context': 'https://schema.org',
+                    '@type': 'ItemList',
+                    itemListElement: [
+                      {
+                        '@type': 'Service',
+                        name: 'Telecom Communication Solutions',
+                        url: `${siteUrl}/services#telecom`
+                      },
+                      {
+                        '@type': 'Service',
+                        name: 'Industrial Automation Systems',
+                        url: `${siteUrl}/services#automation`
+                      },
+                      {
+                        '@type': 'Service',
+                        name: 'Professional Training Programs',
+                        url: `${siteUrl}/services#education`
+                      }
+                    ]
+                  })}
+                </script>
             </Helmet>
             <main className="min-h-screen bg-background">
             {/* Hero Banner with Image Upload Support */}

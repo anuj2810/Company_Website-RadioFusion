@@ -11,6 +11,7 @@ const aboutMobile = "/assets/images/about/banner1.webp";
 
 export default function About() {
     usePageTitle("About Us");
+    const siteUrl = import.meta.env.VITE_SITE_URL || 'https://mycompany.com';
     
     const [aboutHeroImage, setAboutHeroImage] = useState(about);
 
@@ -23,20 +24,45 @@ export default function About() {
                 <title>About RadioFusion Global - Our Story & Mission</title>
                 <meta name="description" content="Learn about RadioFusion Global's journey, mission, and commitment to delivering innovative technology solutions and comprehensive training programs." />
                 <meta name="keywords" content="about RadioFusion Global, company story, mission, technology solutions, training programs, innovation" />
-                <link rel="canonical" href="https://mycompany.com/about" />
+                <link rel="canonical" href={`${siteUrl}/about`} />
                 
                 {/* Open Graph Tags */}
                 <meta property="og:title" content="About RadioFusion Global - Our Story & Mission" />
                 <meta property="og:description" content="Learn about RadioFusion Global's journey, mission, and commitment to delivering innovative technology solutions and comprehensive training programs." />
-                <meta property="og:image" content="https://mycompany.com/assets/images/about/banner.webp" />
-                <meta property="og:url" content="https://mycompany.com/about" />
+                <meta property="og:image" content={`${siteUrl}/assets/images/about/banner.webp`} />
+                <meta property="og:url" content={`${siteUrl}/about`} />
                 <meta property="og:type" content="website" />
+                <meta property="og:site_name" content="RadioFusion Global" />
+                <meta property="og:locale" content="en_IN" />
                 
                 {/* Twitter Card Tags */}
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:title" content="About RadioFusion Global - Our Story & Mission" />
                 <meta name="twitter:description" content="Learn about RadioFusion Global's journey, mission, and commitment to delivering innovative technology solutions and comprehensive training programs." />
-                <meta name="twitter:image" content="https://mycompany.com/assets/images/about/banner.webp" />
+                <meta name="twitter:image" content={`${siteUrl}/assets/images/about/banner.webp`} />
+                <meta name="twitter:site" content="@RadioFusionGlobal" />
+
+                {/* JSON-LD: Breadcrumbs for About */}
+                <script type="application/ld+json">
+                  {JSON.stringify({
+                    '@context': 'https://schema.org',
+                    '@type': 'BreadcrumbList',
+                    itemListElement: [
+                      { '@type': 'ListItem', position: 1, name: 'Home', item: `${siteUrl}/` },
+                      { '@type': 'ListItem', position: 2, name: 'About', item: `${siteUrl}/about` }
+                    ]
+                  })}
+                </script>
+
+                {/* JSON-LD: AboutPage */}
+                <script type="application/ld+json">
+                  {JSON.stringify({
+                    '@context': 'https://schema.org',
+                    '@type': 'AboutPage',
+                    name: 'About RadioFusion Global',
+                    url: `${siteUrl}/about`,
+                  })}
+                </script>
             </Helmet>
             <main className="min-h-screen bg-background">
             {/* Hero Banner with Image Upload Support */}

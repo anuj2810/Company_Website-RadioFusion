@@ -1,9 +1,14 @@
 const fs = require('fs');
 const path = require('path');
 
-// Website configuration
-const SITE_URL = 'https://mycompany.com';
-const OUTPUT_PATH = path.join(__dirname, '../public/sitemap.xml');
+// Website configuration (prefer env, fallback to production domain)
+const SITE_URL = process.env.SITE_URL || 'https://radiofusionglobal.com';
+
+// Determine target output directory
+const args = process.argv.slice(2);
+const toDist = args.includes('--dist');
+const TARGET_DIR = toDist ? '../dist' : '../public';
+const OUTPUT_PATH = path.join(__dirname, TARGET_DIR, 'sitemap.xml');
 
 // Define all routes with their properties
 const routes = [
@@ -62,10 +67,10 @@ function writeSitemap() {
   try {
     const sitemapContent = generateSitemap();
     
-    // Ensure the public directory exists
-    const publicDir = path.dirname(OUTPUT_PATH);
-    if (!fs.existsSync(publicDir)) {
-      fs.mkdirSync(publicDir, { recursive: true });
+    // Ensure the target directory exists
+    const outDir = path.dirname(OUTPUT_PATH);
+    if (!fs.existsSync(outDir)) {
+      fs.mkdirSync(outDir, { recursive: true });
     }
     
     fs.writeFileSync(OUTPUT_PATH, sitemapContent, 'utf8');

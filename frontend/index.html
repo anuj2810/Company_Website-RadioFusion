@@ -1,17 +1,46 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MJ3LEY54NP"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
+    <!-- Performance and SEO hints -->
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+    <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+    <link rel="dns-prefetch" href="//www.googletagmanager.com">
+    <link rel="dns-prefetch" href="//www.google-analytics.com">
+    <meta name="robots" content="index,follow">
+    <meta name="theme-color" content="#0f172a">
+    
+    <!-- Conditionally load Google Analytics only in production -->
+    <script type="module">
+      const isProd = import.meta.env.PROD;
+      const GA_ID = import.meta.env.VITE_GA_ID || 'G-MJ3LEY54NP';
+      if (isProd && GA_ID) {
+        const gaScript = document.createElement('script');
+        gaScript.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
+        gaScript.async = true;
+        document.head.appendChild(gaScript);
 
-        gtag('config', 'G-MJ3LEY54NP');
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){window.dataLayer.push(arguments);} // eslint-disable-line no-inner-declarations
+        gtag('js', new Date());
+        gtag('config', GA_ID, { anonymize_ip: true });
+      }
+    </script>
+    
+    <!-- JSON-LD: WebSite (uses env site URL if provided) -->
+    <script type="application/ld+json">
+      {JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'WebSite',
+        name: 'RadioFusion Global',
+        url: (import.meta?.env?.VITE_SITE_URL || 'https://radiofusionglobal.com'),
+      })}
     </script>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/assets/logo.png" />
+    <!-- App icons and manifest -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/webp" href="/assets/images/logo.webp" />
+    <link rel="apple-touch-icon" href="/assets/images/logo.webp" />
+    <link rel="manifest" href="/site.webmanifest" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>RadioFusion Global India</title>
   </head>

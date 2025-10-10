@@ -9,6 +9,7 @@ const contactMobile = "/assets/images/contact/banner1.webp";
 
 export default function Contact() {
   usePageTitle("Contact Us");
+  const siteUrl = import.meta.env.VITE_SITE_URL || 'https://mycompany.com';
   
   const [form, setForm] = useState({ 
     name: "", 
@@ -114,20 +115,45 @@ export default function Contact() {
         <title>Contact Us - RadioFusion Global</title>
         <meta name="description" content="Get in touch with RadioFusion Global for inquiries about our technology solutions, training programs, and services. Contact us today!" />
         <meta name="keywords" content="contact RadioFusion Global, get in touch, inquiries, technology solutions, training programs" />
-        <link rel="canonical" href="https://mycompany.com/contact" />
+        <link rel="canonical" href={`${siteUrl}/contact`} />
         
         {/* Open Graph Tags */}
         <meta property="og:title" content="Contact Us - RadioFusion Global" />
         <meta property="og:description" content="Get in touch with RadioFusion Global for inquiries about our technology solutions, training programs, and services. Contact us today!" />
-        <meta property="og:image" content="https://mycompany.com/assets/images/contact/banner.webp" />
-        <meta property="og:url" content="https://mycompany.com/contact" />
+        <meta property="og:image" content={`${siteUrl}/assets/images/contact/banner.webp`} />
+        <meta property="og:url" content={`${siteUrl}/contact`} />
         <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="RadioFusion Global" />
+        <meta property="og:locale" content="en_IN" />
         
         {/* Twitter Card Tags */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Contact Us - RadioFusion Global" />
         <meta name="twitter:description" content="Get in touch with RadioFusion Global for inquiries about our technology solutions, training programs, and services. Contact us today!" />
-        <meta name="twitter:image" content="https://mycompany.com/assets/images/contact/banner.webp" />
+        <meta name="twitter:image" content={`${siteUrl}/assets/images/contact/banner.webp`} />
+        <meta name="twitter:site" content="@RadioFusionGlobal" />
+
+        {/* JSON-LD: Breadcrumbs for Contact */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              { '@type': 'ListItem', position: 1, name: 'Home', item: `${siteUrl}/` },
+              { '@type': 'ListItem', position: 2, name: 'Contact', item: `${siteUrl}/contact` }
+            ]
+          })}
+        </script>
+
+        {/* JSON-LD: ContactPage */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'ContactPage',
+            name: 'Contact RadioFusion Global',
+            url: `${siteUrl}/contact`,
+          })}
+        </script>
       </Helmet>
       <main className="min-h-screen bg-background">
       {/* Hero Banner with Image Upload Support */}

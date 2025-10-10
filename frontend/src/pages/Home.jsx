@@ -20,6 +20,7 @@ const growthImg = "/assets/images/home/Growth.webp";
 
 export default function Home() {
     usePageTitle("Home");
+    const siteUrl = import.meta.env.VITE_SITE_URL || 'https://mycompany.com';
     
     const [openAccordion, setOpenAccordion] = useState(null);
     const [heroImage, setHeroImage] = useState(bannerImage);
@@ -69,20 +70,60 @@ export default function Home() {
                  <title>RadioFusion Global - Innovative Technology Solutions & Training</title>
                  <meta name="description" content="RadioFusion Global provides cutting-edge technology solutions, telecommunications services, automation systems, and comprehensive training programs to empower businesses and individuals." />
                  <meta name="keywords" content="technology solutions, telecommunications, automation, training programs, RadioFusion Global, innovation, business solutions" />
-                 <link rel="canonical" href="https://mycompany.com/" />
+                <link rel="canonical" href={`${siteUrl}/`} />
                  
                  {/* Open Graph Tags */}
                  <meta property="og:title" content="RadioFusion Global - Innovative Technology Solutions & Training" />
                  <meta property="og:description" content="RadioFusion Global provides cutting-edge technology solutions, telecommunications services, automation systems, and comprehensive training programs to empower businesses and individuals." />
-                 <meta property="og:image" content="https://mycompany.com/assets/images/home/banner.webp" />
-                 <meta property="og:url" content="https://mycompany.com/" />
-                 <meta property="og:type" content="website" />
+                <meta property="og:image" content={`${siteUrl}/assets/images/home/banner.webp`} />
+                <meta property="og:url" content={`${siteUrl}/`} />
+                <meta property="og:type" content="website" />
+                <meta property="og:site_name" content="RadioFusion Global" />
+                <meta property="og:locale" content="en_IN" />
                  
                  {/* Twitter Card Tags */}
                  <meta name="twitter:card" content="summary_large_image" />
                  <meta name="twitter:title" content="RadioFusion Global - Innovative Technology Solutions & Training" />
                  <meta name="twitter:description" content="RadioFusion Global provides cutting-edge technology solutions, telecommunications services, automation systems, and comprehensive training programs to empower businesses and individuals." />
-                 <meta name="twitter:image" content="https://mycompany.com/assets/images/home/banner.webp" />
+                <meta name="twitter:image" content={`${siteUrl}/assets/images/home/banner.webp`} />
+                <meta name="twitter:site" content="@RadioFusionGlobal" />
+             
+                 {/* JSON-LD: Organization */}
+                 <script type="application/ld+json">
+                   {JSON.stringify({
+                     '@context': 'https://schema.org',
+                     '@type': 'Organization',
+                     name: 'RadioFusion Global',
+                     url: `${siteUrl}/`,
+                     logo: `${siteUrl}/assets/images/logo.webp`,
+                     sameAs: [
+                       'https://www.linkedin.com/company/radiofusion-global',
+                       'https://twitter.com/radiofusionglobal'
+                     ],
+                     contactPoint: [{
+                       '@type': 'ContactPoint',
+                       telephone: '+91-0000000000',
+                       contactType: 'customer service',
+                       areaServed: 'IN'
+                     }]
+                   })}
+                 </script>
+
+                 {/* JSON-LD: Breadcrumbs */}
+                 <script type="application/ld+json">
+                   {JSON.stringify({
+                     '@context': 'https://schema.org',
+                     '@type': 'BreadcrumbList',
+                     itemListElement: [
+                       {
+                         '@type': 'ListItem',
+                         position: 1,
+                         name: 'Home',
+                         item: `${siteUrl}/`
+                       }
+                     ]
+                   })}
+                 </script>
              </Helmet>
              <main className="min-h-screen">
             <section className="relative w-full overflow-hidden" style={{ height: '100vh', minHeight: '100vh' }}>
