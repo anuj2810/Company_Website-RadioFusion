@@ -62,8 +62,8 @@ class BatchImageOptimizer:
                     "quality": 85
                 },
                 {
-                    "input": "backend/static/images",
-                    "output": "backend/static/images/webp",
+                    "input": "frontend/public/images",
+                    "output": "frontend/public/images/webp",
                     "quality": 90
                 }
             ],

@@ -77,11 +77,6 @@ class BuildOptimizer:
                     "source": "frontend/public/images",
                     "output": "frontend/public/images/optimized",
                     "watch": True
-                },
-                {
-                    "source": "backend/static/images",
-                    "output": "backend/static/images/optimized",
-                    "watch": False
                 }
             ],
             "build_hooks": {

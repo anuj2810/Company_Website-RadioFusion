@@ -35,19 +35,8 @@
       "output": "frontend/public/images/optimized",
       "watch": true,
       "description": "Public static images"
-    },
-    {
-      "source": "backend/static/images",
-      "output": "backend/static/images/optimized",
-      "watch": false,
-      "description": "Django static images"
-    },
-    {
-      "source": "backend/media/uploads",
-      "output": "backend/media/uploads/optimized",
-      "watch": true,
-      "description": "User uploaded content"
     }
+    
   ],
   "build_hooks": {
     "pre_build": [

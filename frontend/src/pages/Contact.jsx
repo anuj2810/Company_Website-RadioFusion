@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { submitContact } from "../api/api";
 import usePageTitle from "../hooks/usePageTitle";
 import ImageUpload from "../components/ImageUpload";
 import banner from "../assets/images/contact/banner.webp";
@@ -102,36 +101,11 @@ export default function Contact() {
       return;
     }
 
-    try {
-      const response = await fetch('http://127.0.0.1:8000/api/contact-form/', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(form),
-      });
-
-      const data = await response.json();
-
-      if (response.ok && data.success) {
-        setStatus("success");
-        setSuccessMessage(data.message || "Your message has been sent successfully! We will get back to you soon.");
-        setForm({ name: '', email: '', phone: '', subject: '', message: '' });
-      } else {
-        setStatus("error");
-        if (data.errors) {
-          // Handle form validation errors from backend
-          const errorMessages = Object.values(data.errors).flat();
-          setErrorMessage(errorMessages.join(' '));
-        } else {
-          setErrorMessage(data.message || "Error sending message. Please try again.");
-        }
-      }
-    } catch (error) {
-      console.error('Error submitting form:', error);
-      setStatus("error");
-      setErrorMessage("Network error. Please check your connection and try again.");
-    }
+    // No backend: simulate successful submission locally
+    await new Promise((r) => setTimeout(r, 600));
+    setStatus("success");
+    setSuccessMessage("Your message has been sent successfully! We will get back to you soon.");
+    setForm({ name: '', email: '', phone: '', subject: '', message: '' });
   };
 
   return (
