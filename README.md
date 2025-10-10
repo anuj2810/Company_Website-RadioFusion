@@ -1,4 +1,4 @@
-# Company Website — Frontend Only
+# Company Website
 
 This repository now hosts a pure frontend static website built with Vite + React and Tailwind CSS. All backend code, environments, and integrations have been removed.
 
